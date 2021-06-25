@@ -6,12 +6,12 @@ interface IComplimentRequest {
     tag_id: string;
     user_sender: string;
     user_receiver: string;
-    massage: string
+    message: string
 }
 
 class CreateComplimentService {
 
-    async execute({ tag_id, user_sender, user_receiver, massage } : IComplimentRequest) {
+    async execute({ tag_id, user_sender, user_receiver, message } : IComplimentRequest) {
         const complimentsRepositories = getCustomRepository(ComplimentsRepositories)
         const usersRepositories = getCustomRepository(UsersRepositories)
 
@@ -29,7 +29,7 @@ class CreateComplimentService {
             tag_id,
             user_receiver,
             user_sender,
-            massage
+            message
         })
         
         await complimentsRepositories.save(compliment)
